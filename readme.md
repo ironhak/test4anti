@@ -10,6 +10,7 @@ Even tough this model does not predict, and it would be impossible for it to do 
 |[Model v.2](./classify_candles%20v2.ipynb) | <ul><li>Added wick sizes measurements.<li> Changed classification system based on the average directional candlestick, instead of using st.dev. it has been chosen the avg. wick size because it's more coherent with the whole logic.</ul>|
 |[Model v.3](./classify_candles%20v3.ipynb) |<ul><li>It has been created a code that allows to rapidly print all the relevant statistics of a given price-frame.<li> Added statistics relative to<ul><li>% of times the given category happened on the dataset.<li>Average wick size.<li>Average wicks creation time.</ul><li>Expanded categorization based on the creation order of High/Lows.</ul> |
 |[Model v.4](./classify_candles%20v4.ipynb) |<ul><li>*Improvements of the code*: each function has been generalized, and it can be used to create multiple instances.<li> Added statistics relative to the smaller price-frame (i.e. 25%).</ul> |
+|[Model v.5](./classify_candles%20v5.ipynb)| <ul><li>Implemented a charting application for this whole concept: using a DC as basis and add to its midline the values found on previous statistical analysis.<li>Collected new stats about the distribution of price around categories using DC.</ul> |
 
 ## Main concepts
 ### 1. Implications of the Open-Close distance
@@ -19,7 +20,11 @@ The main properties of a bullish candle, that can be understood from the average
 2. In these candles the high is built around the (calculation period x 0.75)/(calculation period)th tick, i.e. ticktime-wise at about 25 % of the candlestick period before that candlestick closes bullish. 
     >*Maybe this can be called a "market constant", basically you can choose ANY price-frame size and without doing any statistics you can immediately know, on average, when a High/Low will be created in the time-axis.*
 3. The wicks become shorter the stronger the candlestick's strength (close-open distance) is. 
-    >*In other words: the higher OC the lower DD of the trend (always remember, these are ex-post considerations!).*
+    >*In other words: higher OC means lower drawdown of the trend/trade (always remember, these are ex-post considerations!).*
+    >
+    ><p align="center"><img src="classification.png"  margin="auto" width="700" height="400" /></p>
+    >
+    >The red lines are just a copy of the standard bullish candle (the one labeled with "all"), as you can see an extra-performance over the standard candle on average means lower wick sizes.
 
 Consequence of the points above are the following considerations about the Open-Close range:
 - If OC is smaller than the average candlestick's OC range (regardless of the high/low order), we can conclude that current performance is weak.
@@ -28,7 +33,13 @@ Consequence of the points above are the following considerations about the Open-
 
 Thus, the last 2 possibilities indicate a trend, and we could hold on to our long trade (if we're in a long position).
 
-### 2. Smaller price-frames
+### 2. Insights from Random Walk theory
+*According to random walk theory, any price target that is closer to a starting point will be more likely reached by the random price walk than any price target that's further away. What does that mean? It means, if the close price is above the mid-line, it is more likely that price will go above the average upper wick line before it gets below the lower average wick line. There's a certainty that price will reach a price above the average upper wick line before it will go below the average lower wick line (or, if it is already inside these "beyond wick zones") it will stay in more likely than leaving it and immediately go to the other side.*
+
+
+### 3. Smaller price-frames
+*To specify a trend, you have to measure the trend's strength (main oc) as well as it's counter-trend force (wick oc).*
+
 Regardless of the Open-Close range, a counter trend can **always** start, that is why the second most important measure to look at is the High-Close distance (vice-versa for downtrends); it's basically the draw-dawn of the current trend. 
 
 **Problem:** How do you know if the High-Close (countertrend) distance you're seeing is being created right now or if it was created too long ago, maybe at the start of the candlestick? You certainly don't want to manage a trade with informations that do not represent current situation. 
@@ -75,16 +86,9 @@ Indeed, there are several connections between the $1000$ ticks price-frame and t
 </tbody>
 </table><hr></div></div><div style="clear:both;"></div>
 
-
-
-
-
-
-
-
-
-
-<!-- 
+As you may see, the values expressed in % are basically the same and the values expressed in pips are almost perfectly multiples of 2. This has two main implications that I see:
+1. There are "universal" properties of the markets that seems to emerge on every kind of chart, period, timeframe you look at. 
+2. The 25% of a price-frame seems to produce "harmonic" proportions between higher and lower periods. 
 
 
 #### $36$ combinations
@@ -101,5 +105,5 @@ You could also measure the counter-trend potential of the counter-trend, this wo
 - The possibility of price reverting against your trade when also the lower dimension is in our favor (price is making new highs), in other words: a fastest way to see potential reversion of price.
 
 > This subsection tough is really more of a future idea... Mastering $36$ possible configurations should keep busy for a while. 
--->
+
 
