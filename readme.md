@@ -10,7 +10,7 @@ Even tough this model does not predict, and it would be impossible for it to do 
 |[Model v.2](./classify_candles%20v2.ipynb) | <ul><li>Added wick sizes measurements.<li> Changed classification system based on the average directional candlestick, instead of using st.dev. it has been chosen the avg. wick size because it's more coherent with the whole logic.</ul>|
 |[Model v.3](./classify_candles%20v3.ipynb) |<ul><li>It has been created a code that allows to rapidly print all the relevant statistics of a given price-frame.<li> Added statistics relative to<ul><li>% of times the given category happened on the dataset.<li>Average wick size.<li>Average wicks creation time.</ul><li>Expanded categorization based on the creation order of High/Lows.</ul> |
 |[Model v.4](./classify_candles%20v4.ipynb) |<ul><li>*Improvements of the code*: each function has been generalized, and it can be used to create multiple instances.<li> Added statistics relative to the smaller price-frame (i.e. 25%).</ul> |
-|[Model v.5](./classify_candles%20v5.ipynb)| <ul><li>Implemented a charting application for this whole concept: using a DC as basis and add to its midline the values found on previous statistical analysis.<li>Collected new stats about the distribution of price around categories using DC.</ul> |
+|[Model v.5](./classify_candles%20v5.ipynb)| <ul><li>Implemented a charting application for this whole concept: using a DC as basis and add to its midline the values found on previous statistical analysis.<li>Collected new stats about the distribution of price around categories using DC.<li>Created a method similar to MACD to display DC.</li><li>Collected stats about distribution of each scenario from the 36 possible ones.</li><li>Created a transition probability matrix about every scenario. [Download](transition_matrix.csv)</li></ul> |
 
 ## Main concepts
 ### 1. Implications of the Open-Close distance
@@ -56,7 +56,7 @@ Regardless of the Open-Close range, a counter trend can **always** start, that i
 Indeed, there are several connections between the $1000$ ticks price-frame and the $0.25\cdot1000$ price frame, here's some data:
 
 
-<div style="float:left;"><div style="margin-right:20px;"><p style="font-size: 24px;">1000 tick dimension</p><hr><hr><p style="color:green; font-size: 24px;">Bullish</p><hr><p style="color:green; font-size: 16px;">Irrespective of High being before or after Low</p><table>
+<div style="float:left;"><div style="margin-right:20px;"><p style="font-size: 24px;">1000 tick dimension</p><table>
 <thead>
 <tr><th style="text-align: right;">                           Bullish</th><th style="text-align: right;">    All</th><th style="text-align: right;">   Weak</th><th style="text-align: right;">  Medium</th><th style="text-align: right;">  Strong</th></tr>
 </thead>
@@ -70,7 +70,7 @@ Indeed, there are several connections between the $1000$ ticks price-frame and t
 <tr><td style="text-align: right;">           average lower wick time</td><td style="text-align: right;">    242</td><td style="text-align: right;">    310</td><td style="text-align: right;">     165</td><td style="text-align: right;">     119</td></tr>
 <tr><td style="text-align: right;">average lower wick time percentage</td><td style="text-align: right;">    24%</td><td style="text-align: right;">    31%</td><td style="text-align: right;">     16%</td><td style="text-align: right;">     11%</td></tr>
 </tbody>
-</table><hr></div></div><div style="float:left;"><div style="margin-right:20px;"><p style="font-size: 24px;">250 tick dimension</p><hr><hr><p style="color:green; font-size: 24px;">Bullish</p><hr><p style="color:green; font-size: 16px;">Irrespective of High being before or after Low</p><table>
+</table><hr></div></div><div style="float:left;"><div style="margin-right:20px;"><p style="font-size: 24px;">250 tick dimension</p><table>
 <thead>
 <tr><th style="text-align: right;">                           Bullish</th><th style="text-align: right;">    All</th><th style="text-align: right;">   Weak</th><th style="text-align: right;">  Medium</th><th style="text-align: right;">  Strong</th></tr>
 </thead>
