@@ -6,11 +6,11 @@ Even tough this model does not predict, and it would be impossible for it to do 
 ## Project outline
 | <center><nobr>Model version</center> | <center>Details</center> |
 |---------------|---------|
-|[Model v.1](./classify_candles%20v1.ipynb) |   <ul><li>Creation of a rolling time frame based on tick charts.<li> Collected informations about High/Low time of creation<li> Created a classification system based on average and st.dev of the Open-Close distance.</ul>|
-|[Model v.2](./classify_candles%20v2.ipynb) | <ul><li>Added wick sizes measurements.<li> Changed classification system based on the average directional candlestick, instead of using st.dev. it has been chosen the avg. wick size because it's more coherent with the whole logic.</ul>|
-|[Model v.3](./classify_candles%20v3.ipynb) |<ul><li>It has been created a code that allows to rapidly print all the relevant statistics of a given price-frame.<li> Added statistics relative to<ul><li>% of times the given category happened on the dataset.<li>Average wick size.<li>Average wicks creation time.</ul><li>Expanded categorization based on the creation order of High/Lows.</ul> |
-|[Model v.4](./classify_candles%20v4.ipynb) |<ul><li>*Improvements of the code*: each function has been generalized, and it can be used to create multiple instances.<li> Added statistics relative to the smaller price-frame (i.e. 25%).</ul> |
-|[Model v.5](./classify_candles%20v5.ipynb)| <ul><li>Implemented a charting application for this whole concept: using a DC as basis and add to its midline the values found on previous statistical analysis.<li>Collected new stats about the distribution of price around categories using DC.<li>Created a method similar to MACD to display DC.</li><li>Collected stats about distribution of each scenario from the 36 possible ones.</li><li>Created a transition probability matrix about every scenario. [Download](transition_matrix.csv)</li></ul> |
+|[Model v.1](https://nbviewer.org/github/ironhak/test4anti/blob/main/classify_candles%20v1.ipynb) |   <ul><li>Creation of a rolling time frame based on tick charts.<li> Collected informations about High/Low time of creation<li> Created a classification system based on average and st.dev of the Open-Close distance.</ul>|
+|[Model v.2](https://nbviewer.org/github/ironhak/test4anti/blob/main/classify_candles%20v2.ipynb) | <ul><li>Added wick sizes measurements.<li> Changed classification system based on the average directional candlestick, instead of using st.dev. it has been chosen the avg. wick size because it's more coherent with the whole logic.</ul>|
+|[Model v.3](https://nbviewer.org/github/ironhak/test4anti/blob/main/classify_candles%20v3.ipynb) |<ul><li>It has been created a code that allows to rapidly print all the relevant statistics of a given price-frame.<li> Added statistics relative to<ul><li>% of times the given category happened on the dataset.<li>Average wick size.<li>Average wicks creation time.</ul><li>Expanded categorization based on the creation order of High/Lows.</ul> |
+|[Model v.4](https://nbviewer.org/github/ironhak/test4anti/blob/main/classify_candles%20v4.ipynb) |<ul><li>*Improvements of the code*: each function has been generalized, and it can be used to create multiple instances.<li> Added statistics relative to the smaller price-frame (i.e. 25%).</ul> |
+|[Model v.5](https://nbviewer.org/github/ironhak/test4anti/blob/main/classify_candles%20v5.ipynb)| <ul><li>Implemented a charting application for this whole concept: using a DC as basis and add to its midline the values found on previous statistical analysis.<li>Collected new stats about the distribution of price around categories using DC.<li>Created a method similar to MACD to display DC.</li><li>Collected stats about distribution of each scenario from the 36 possible ones.</li><li>Created a transition probability matrix about every scenario. [Download](transition_matrix.csv)</li></ul> |
 
 ## Main concepts
 ### 1. Implications of the Open-Close distance
@@ -105,5 +105,3 @@ You could also measure the counter-trend potential of the counter-trend, this wo
 - The possibility of price reverting against your trade when also the lower dimension is in our favor (price is making new highs), in other words: a fastest way to see potential reversion of price.
 
 > This subsection tough is really more of a future idea... Mastering $36$ possible configurations should keep busy for a while. 
-
-
