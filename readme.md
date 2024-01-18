@@ -105,3 +105,15 @@ You could also measure the counter-trend potential of the counter-trend, this wo
 - The possibility of price reverting against your trade when also the lower dimension is in our favor (price is making new highs), in other words: a fastest way to see potential reversion of price.
 
 > This subsection tough is really more of a future idea... Mastering $36$ possible configurations should keep busy for a while. 
+
+### 4. Insights from the transition matrix (model v.5)
+- **The most probable thing the market will do in $n$ ticks from now is staying on the same conditions of the current moment.**
+- Immediately more probable are configurations closer to the current one. For example, the chances of switching from Bullish-Strong / Bullish-Strong to Bearish-Strong / Bearish-strong is basically 0. 
+
+My hypothesis is that the edge would be to use this characteristic of markets. You “collect” info about current condition (i.e. classification of 1k price frame), you collect info about lower dimension in order to see rapidly if the current condition is changing, and you profit on this tendency of the market to maintain to be "more stationary than not" in the current condition. 
+
+It’s like arbitraging the market itself: you know that due to chaos/random/whatever conditions at point $t=A$ almost never are equal to conditions at point $t=B$, but the transition matrix proves that the path between $A$ to $B$ is full of points where the most likely state is the one immediately before. It’s like a sort of anomaly. If it was TRULY random then the probability transition matrix would have had: 
+- fixed probability of 1/36 for each condition, assuming uniform random distribution.
+- higher probabilities for return to the center of the channel (mean reversion), assuming a normal distribution. 
+
+
