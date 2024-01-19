@@ -14,7 +14,7 @@ Even tough this model does not predict, and it would be impossible for it to do 
 
 ## Main concepts
 ### 1. Implications of the Open-Close distance
-The main properties of a bullish candle, that can be understood from the average bullish candle, are:
+The main properties of a bullish candle, that can be understood from the average bullish candle, are: 
 1. If you don't care about the high/low order, overall you'll see the low is built before the high.
 
 2. In these candles the high is built around the (calculation period x 0.75)/(calculation period)th tick, i.e. ticktime-wise at about 25 % of the candlestick period before that candlestick closes bullish. 
